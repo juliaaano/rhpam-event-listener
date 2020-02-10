@@ -1,0 +1,58 @@
+env:
+  global:
+    - MAVEN_CMD="mvn --batch-mode --show-version"
+    - secure: "a3rp3Y0bKUbOze6dWrKNRLQ80Xj8HAMWWcvJ/mkC3Pl22LO1UAKsrmW5KeiT2whd/zmrb7ntrzS3JUTXJpI8cUZA7Pf6osNR7x1C1SRcwzSOVj96HHUmfg7rH3gFNJ5EDmXSCGkivVkxuRdJqIGxZT80d1mH0Fob9H3eSx5j8vPss2H8/ojsnCuPdg0RJBqFJocxLb1awGgf5McPgZ16XJwUys0ec9014dZD48SbpBLGSUGT2qZo29g/cLGeNKJxSjM7wdadXGIYkiOp2xHUMR4OkJiNXHTj9J7aJskUYReGYUwWY9iyrTeES0qvgq+AAspxX/VqiLKMhfWZL0CsKBJp99uiKmlwGxjjqZWmY4qRvOIJ5zVNPoSOFOFPYut0uHHOFeMSwzFsI21ISUu8ELiJ1X+eWGX+JNVL6r56MNaGAICv0UkF/KG2YoqrI2NjpfcpH/PgPb00Huk3WpykORb7KywWxJ1NTbVmP4LAN3MhkNmhv7vSPhub+QvtM1LAXqg4OhHX2DAsHyIYIbMbYlC8mAVbm3JiZqswVhQRu5TLKC//juDfeegVqO3y5uef11Bg8PkQME36e1tKSb3vUY7hvOVR0KajuQ8ttIRjKtLyKZYevwQFhkGcBXWJ6ZXfhg/axIldLEIZCQGQzYYou8FeFScQhhqnvrmYSnHv6Bg="
+    - secure: "qhowhH9yyQRuw0ol4xilEEuBdKBZL7gxvRZF+rDSkr4/5DSHE3b6NzBxewqAakro44m/6rQ637ei7YXFgPYwZmqVXnWKN3qp+QVYMBRS2ZvZxvIplpawXqHM1gDOHaeNHrnb64S6DSjgxe8BIeER7D62fe6oSmuqyD3SpDlcO6XogRm6Q5lYu9ALyczGLfagpCvGKtasRfMAc4CqURas2AND4TGoRnyKDHadCADOMJCyiWdn/g5GkGKLqUIkVWKjEqsoGZd1C6U5yMbGMAwXb9/ceAtMurn7CQtmAqn0dCR4Hfdb6jI07JDbqUhmS3mZgKXUehKkbodRJ1ie/9dX4fjsXOtfUPGjzDSIa+ijO1qqXMcVEXdeXZ6g8UinAd5Pp9a5x5ti91acoCRwlCfjNHmaub5beM4srza/hFTZ2bkAPGsroH2qrEJqMwmb5S0EgD39xAkvENck9Jk0T6U/lGVAoavSSXX2gMWvgneWD3IoR4aFAiUm0LDCT2dqdSiTipXaFTdRsS83s1kMhxX5VsV815sAbNS2lAsPyFvuL0lOzOOGkTvjCN2LHvXci01aD2MDcqKxWf7E6gm9qHv14DYOQJmqZnLo/hgwqBYIcp/GQW/AoIjXABkSK00Zl4H3E6DNP8M7HEhV0S4cGnhDryqM+BfglTACdFi/Qu3J1pU="
+    - secure: "HujzeaH9fVJp6aiaHJbSL4VHIrBeq+rPgmqMc7KFj4W9SQ4SXJ0WVFxhO8P0IjXHzp3nwaguE1paysB3jqW5rw9ZZdaC/+qt4ITebRAmjVJPqxlioc8GsS8ZupvQAAHBwRaqfepZZLYY0gIAR/cvGlgVP9hH2w9NilhNdv6irFEZIh+rl3wmJpq/myrLYZNjlq7txMio5FUEWrQFqUOUvx22VMlNtZ/8z26M2qhuXfjJutsk5zRi1u20HtPBs2R0hQR6yoETFpSsE6thffsRIRrTjn+eTvG+c7r/zjoiO1GTZYUuq2rAzTbFiJZUtgS042aVFpGbfH0A+qmrHLA6GwQwoAVZkP7LyOAlp24feCONaon/wHOjYbWCki5qA/26YU0/YZOiNK3FTOtoKzYAQNHloOtrEHDeXa65M7f66rHmkCK8PWw0TgBQWN3PdSTW/0S20jlpujaqTMsPHwmyUoDzyb1005W9KZU24idCTNiQiM00Z/aiL7/4RwpVAzeHb+pCit48HPqsCAtwxNAtaY4RzVFIaDtR26F+NC6QrlFkiu6LFhIAAuGKRHgiKHwL4US4/ixl+8tKruqqVt3D3kr0NUk18iR0oof9e6J/m74e6o4IXf9MsSqHweGEVklGYsnXffk/539lmstA8YV0UyHb7kacYyqHI8HequIaB1E="
+
+language: java
+
+os:
+  - linux
+
+jdk:
+  - openjdk8
+  - openjdk11
+
+cache:
+  directories:
+    - "$HOME/.m2"
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_c8fe6c889b4d_key -iv $encrypted_c8fe6c889b4d_iv -in gpg-key-FB208B6E.asc.enc -out gpg-key-FB208B6E.asc -d
+  - gpg --batch --fast-import gpg-key-FB208B6E.asc
+  - if [ -n "$TRAVIS_TAG" ]; then $MAVEN_CMD versions:set -DnewVersion=$TRAVIS_TAG; fi
+
+install:
+  - $MAVEN_CMD dependency:go-offline
+
+script:
+  - $MAVEN_CMD test
+  - if [[ "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      $MAVEN_CMD clean deploy --activate-profiles deploy --settings settings.xml -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE;
+    fi
+
+after_success:
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      $MAVEN_CMD nexus-staging:release --activate-profiles deploy --settings settings.xml;
+    fi
+
+after_failure:
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      $MAVEN_CMD nexus-staging:drop --activate-profiles deploy --settings settings.xml;
+    fi
+
+deploy:
+  provider: releases
+  token:
+    secure: "uvzkR70cAW2kR6JzbtE3rrZETUL8cqtlq+IxeuileqgX9aaAJHQBS0O3H9T6nqodjUa+LP/duKODr5ZlrQonU1CoEBEdBcFRXktWri8vhSUSN2Q7UnNOCN0tLxIRQ1JNlmOfbr2bSAHQlk6HLwwurEtTv5KOwgMFGyZthKHKXX+10uRoI5hxEDffn1uSHqK1yasMTtYyyk0ODtkca6CzPpy7k+1KtQlbXCswqMfawgUhOWXcS3HH17lWZiqcEwgPAzfZkbpFoIPe0TW2Wk0gv+9CtFcKS5QwuMtQiJMbw+Ua4dha23zgqMMPyZsELJW+KhIqCDYzmq5u0kJv5bfAD1ty8UgAJwfj9Rx6NylDZam/evES+tO2JCujsQFS2cNdX6C+A5wgTbKvoFIq7D3c0UpYU7N5NnkVQKxLF5b8+ZRbjgftcW5vk5VYv9i+NzL2eQaxLZPSR3V8NzcicTveMIKfEJVPw7td93+qDgLv8G6P6G3eW16B+ccKWT4BIN7q6LEmiOD+WQ5nFvq55tN6fRQGoAAO4oPv8w2aocB5Q69zD/pbbKaDtPmQxkO32DnD7Z+phx0qp180yaBsUBJuhFsOMhYH0YnEhzvxfLUi5Yct91y3YfOOqxZrcK0la0xwS8jS2itusJ9dNM3cKL4q7WrpZeMnpNh3HA/xGbhTWKA="
+  cleanup: true
+  file_glob: true
+  file:
+    - target/rhdm-event-listener-*.jar
+    - target/rhdm-event-listener-*.jar.asc
+  on:
+    repo: juliaaano/rhdm-event-listener
+    branch: master
+    tags: true
+    jdk: openjdk11
