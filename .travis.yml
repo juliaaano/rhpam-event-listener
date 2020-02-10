@@ -46,7 +46,7 @@ deploy:
   provider: releases
   token:
     secure: "uvzkR70cAW2kR6JzbtE3rrZETUL8cqtlq+IxeuileqgX9aaAJHQBS0O3H9T6nqodjUa+LP/duKODr5ZlrQonU1CoEBEdBcFRXktWri8vhSUSN2Q7UnNOCN0tLxIRQ1JNlmOfbr2bSAHQlk6HLwwurEtTv5KOwgMFGyZthKHKXX+10uRoI5hxEDffn1uSHqK1yasMTtYyyk0ODtkca6CzPpy7k+1KtQlbXCswqMfawgUhOWXcS3HH17lWZiqcEwgPAzfZkbpFoIPe0TW2Wk0gv+9CtFcKS5QwuMtQiJMbw+Ua4dha23zgqMMPyZsELJW+KhIqCDYzmq5u0kJv5bfAD1ty8UgAJwfj9Rx6NylDZam/evES+tO2JCujsQFS2cNdX6C+A5wgTbKvoFIq7D3c0UpYU7N5NnkVQKxLF5b8+ZRbjgftcW5vk5VYv9i+NzL2eQaxLZPSR3V8NzcicTveMIKfEJVPw7td93+qDgLv8G6P6G3eW16B+ccKWT4BIN7q6LEmiOD+WQ5nFvq55tN6fRQGoAAO4oPv8w2aocB5Q69zD/pbbKaDtPmQxkO32DnD7Z+phx0qp180yaBsUBJuhFsOMhYH0YnEhzvxfLUi5Yct91y3YfOOqxZrcK0la0xwS8jS2itusJ9dNM3cKL4q7WrpZeMnpNh3HA/xGbhTWKA="
-  cleanup: true
+  skip_cleanup: true
   file_glob: true
   file:
     - target/rhdm-event-listener-*.jar

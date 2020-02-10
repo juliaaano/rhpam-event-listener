@@ -7,12 +7,11 @@
     <parent>
         <groupId>com.juliaaano</groupId>
         <artifactId>rhdm-dependencies</artifactId>
-        <version>1.0.1</version>
-        <relativePath>../rhdm-dependencies</relativePath>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>rhdm-event-listener</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>RHDM Event Listener</name>
