@@ -49,10 +49,10 @@ deploy:
   skip_cleanup: true
   file_glob: true
   file:
-    - target/rhdm-event-listener-*.jar
-    - target/rhdm-event-listener-*.jar.asc
+    - target/rhpam-event-listener-*.jar
+    - target/rhpam-event-listener-*.jar.asc
   on:
-    repo: juliaaano/rhdm-event-listener
+    repo: juliaaano/rhpam-event-listener
     branch: master
     tags: true
     jdk: openjdk11

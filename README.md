@@ -1,5 +1,5 @@
-# RHDM Event Listener
-[![Build Status](https://travis-ci.com/juliaaano/rhdm-event-listener.svg)](https://travis-ci.com/juliaaano/rhdm-event-listener)
+# RHPAM Event Listener
+[![Build Status](https://travis-ci.com/juliaaano/rhpam-event-listener.svg)](https://travis-ci.com/juliaaano/rhpam-event-listener)
 
 Suitable for KIE Server deployments.
 
