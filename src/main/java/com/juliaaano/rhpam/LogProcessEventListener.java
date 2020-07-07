@@ -11,12 +11,13 @@ public class LogProcessEventListener extends DefaultProcessEventListener {
 
     public LogProcessEventListener() {
 
-        log.info("This listener has intialised.");
+        log.debug("This listener has intialised.");
     }
 
     @Override
     public void beforeNodeTriggered(ProcessNodeTriggeredEvent event) {
 
-        log.info("{} node triggered.", event.getNodeInstance().getNodeName());
+        if (event.getNodeInstance().getNodeName() != null)
+            log.info("{} node triggered.", event.getNodeInstance().getNodeName());
     }
 }

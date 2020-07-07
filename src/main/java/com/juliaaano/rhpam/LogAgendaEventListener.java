@@ -11,7 +11,7 @@ public class LogAgendaEventListener extends DefaultAgendaEventListener {
 
     public LogAgendaEventListener() {
 
-        log.info("This listener has intialised.");
+        log.debug("This listener has intialised.");
     }
 
     @Override
