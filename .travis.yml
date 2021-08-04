@@ -11,8 +11,8 @@ os:
   - linux
 
 jdk:
-  - openjdk8
-  - openjdk13
+  - openjdk11
+  - openjdk15
 
 cache:
   directories:
@@ -28,17 +28,17 @@ install:
 
 script:
   - $MAVEN_CMD test
-  - if [[ "$TRAVIS_JDK_VERSION" == "openjdk13" ]]; then
+  - if [[ "$TRAVIS_JDK_VERSION" == "openjdk15" ]]; then
       $MAVEN_CMD clean deploy --activate-profiles deploy --settings settings.xml -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE;
     fi
 
 after_success:
-  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk13" ]]; then
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk15" ]]; then
       $MAVEN_CMD nexus-staging:release --activate-profiles deploy --settings settings.xml;
     fi
 
 after_failure:
-  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk13" ]]; then
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk15" ]]; then
       $MAVEN_CMD nexus-staging:drop --activate-profiles deploy --settings settings.xml;
     fi
 
@@ -55,4 +55,4 @@ deploy:
     repo: juliaaano/rhpam-event-listener
     branch: master
     tags: true
-    jdk: openjdk13
+    jdk: openjdk15
