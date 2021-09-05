@@ -1,5 +1,5 @@
 # RHPAM Event Listener
-[![Build Status](https://travis-ci.com/juliaaano/rhpam-event-listener.svg)](https://travis-ci.com/juliaaano/rhpam-event-listener)
+[![ci](https://github.com/juliaaano/rhpam-event-listener/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/juliaaano/rhpam-event-listener/actions/workflows/ci-cd.yml)
 
 Suitable for KIE Server deployments.
 
